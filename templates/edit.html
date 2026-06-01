@@ -1,0 +1,21 @@
+ {% extends "basic.html" %}
+
+{% block content %}
+
+<header class="header">
+  <div class="logo">task<span class="slash">/</span>er</div>
+  <div class="tagline">// edit mode</div>
+</header>
+
+<div class="edit-card">
+  <p class="edit-title">// editing task #{{ task.id }}</p>
+  <form class="edit-form" action="/edit/{{ task.id }}" method="POST">
+    <input type="text" name="content" id="content" value="{{ task.contents }}">
+    <div class="edit-actions">
+      <input type="submit" value="Update Task">
+      <a href="/" class="btn-cancel">Cancel</a>
+    </div>
+  </form>
+</div>
+
+{% endblock %}
