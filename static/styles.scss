@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+// ── Tokens ─────────────────────────────────────────────────
+$bg:          #0f0f0f;
+$surface:     #1a1a1a;
+$elevated:    #222222;
+$input-bg:    #252525;
+
+$accent:      #00e5a0;
+$accent-dark: #00b37d;
+$accent-glow: rgba(0, 229, 160, 0.12);
+
+$text:        #efefef;
+$muted:       #777777;
+$faint:       #444444;
+
+$danger:      #ff5c5c;
+$border:      #2a2a2a;
+$radius:      12px;
+$radius-sm:   7px;
+$trans:       all 0.16s ease;
+
+// ── Reset ──────────────────────────────────────────────────
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  min-height: 100vh;
+  background: $bg;
+  color: $text;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: $accent; text-decoration: none; transition: $trans;
+  &:hover { color: $accent-dark; }
+}
+
+// ── Page wrapper ───────────────────────────────────────────
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 1rem 4rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 660px;
+}
+
+// ── Header ─────────────────────────────────────────────────
+.header {
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid $border;
+  margin-bottom: 2rem;
+
+  .logo {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: $accent;
+
+    .slash { color: $faint; }
+  }
+
+  .tagline {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: $faint;
+    margin-top: 3px;
+  }
+}
+
+// ── Add form ───────────────────────────────────────────────
+.add-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 1.75rem;
+
+  input[type="text"] {
+    flex: 1;
+    background: $input-bg;
+    border: 1px solid $border;
+    border-radius: $radius;
+    color: $text;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    padding: 0.65rem 1rem;
+    outline: none;
+    transition: $trans;
+
+    &::placeholder { color: $faint; }
+
+    &:focus {
+      border-color: rgba($accent, 0.4);
+      box-shadow: 0 0 0 3px $accent-glow;
+      background: $elevated;
+    }
+  }
+
+  input[type="submit"] {
+    background: $accent;
+    color: #0a0a0a;
+    border: none;
+    border-radius: $radius;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0.65rem 1.25rem;
+    cursor: pointer;
+    transition: $trans;
+    white-space: nowrap;
+
+    &:hover { background: $accent-dark; transform: translateY(-1px); }
+    &:active { transform: translateY(0); }
+  }
+}
+
+// ── Section label ──────────────────────────────────────────
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: $faint;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.75rem;
+}
+
+// ── Empty state ────────────────────────────────────────────
+.empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  border: 1px dashed $border;
+  border-radius: $radius;
+  color: $faint;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+
+  .empty-icon { font-size: 1.8rem; margin-bottom: 0.6rem; opacity: 0.35; }
+}
+
+// ── Task list ──────────────────────────────────────────────
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.task-card {
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius;
+  padding: 0.9rem 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: $trans;
+
+  &:hover {
+    border-color: rgba($accent, 0.25);
+    background: $elevated;
+  }
+
+  .task-body {
+    flex: 1;
+    min-width: 0;
+
+    .task-text {
+      display: block;
+      font-size: 0.93rem;
+      color: $text;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .task-date {
+      font-size: 0.72rem;
+      color: $faint;
+      font-family: 'JetBrains Mono', monospace;
+      margin-top: 3px;
+      display: block;
+    }
+  }
+
+  .task-actions {
+    display: flex;
+    gap: 7px;
+    flex-shrink: 0;
+  }
+}
+
+// ── Buttons ────────────────────────────────────────────────
+.btn-edit {
+  background: rgba($accent, 0.08);
+  border: 1px solid rgba($accent, 0.3);
+  border-radius: $radius-sm;
+  color: $accent;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 11px;
+  transition: $trans;
+
+  &:hover { background: rgba($accent, 0.18); color: $accent; }
+}
+
+.btn-delete {
+  background: rgba($danger, 0.1);
+  border: 1px solid rgba($danger, 0.28);
+  border-radius: $radius-sm;
+  color: $danger;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 11px;
+  transition: $trans;
+
+  &:hover { background: rgba($danger, 0.2); }
+}
+
+// ── Edit card ──────────────────────────────────────────────
+.edit-card {
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius;
+  padding: 1.75rem 2rem;
+
+  .edit-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: $faint;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.25rem;
+  }
+
+  .edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    input[type="text"] {
+      background: $input-bg;
+      border: 1px solid $border;
+      border-radius: $radius;
+      color: $text;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      padding: 0.7rem 1rem;
+      width: 100%;
+      outline: none;
+      transition: $trans;
+
+      &:focus {
+        border-color: rgba($accent, 0.4);
+        box-shadow: 0 0 0 3px $accent-glow;
+      }
+    }
+
+    .edit-actions {
+      display: flex;
+      gap: 9px;
+      margin-top: 4px;
+
+      input[type="submit"] {
+        background: $accent;
+        color: #0a0a0a;
+        border: none;
+        border-radius: $radius;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.85rem;
+        font-weight: 700;
+        padding: 0.65rem 1.3rem;
+        cursor: pointer;
+        transition: $trans;
+
+        &:hover { background: $accent-dark; transform: translateY(-1px); }
+      }
+
+      .btn-cancel {
+        background: transparent;
+        border: 1px solid $border;
+        border-radius: $radius;
+        color: $muted;
+        font-size: 0.85rem;
+        padding: 0.65rem 1.1rem;
+        transition: $trans;
+        display: inline-flex;
+        align-items: center;
+
+        &:hover { border-color: $muted; color: $text; }
+      }
+    }
+  }
+}

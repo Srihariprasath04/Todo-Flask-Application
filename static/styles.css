@@ -1,1 +1,278 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap");
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
+html, body {
+  min-height: 100vh;
+  background: #0f0f0f;
+  color: #efefef;
+  font-family: "DM Sans", sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: #00e5a0;
+  text-decoration: none;
+  transition: all 0.16s ease;
+}
+a:hover {
+  color: #00b37d;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 1rem 4rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 660px;
+}
+
+.header {
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid #2a2a2a;
+  margin-bottom: 2rem;
+}
+.header .logo {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #00e5a0;
+}
+.header .logo .slash {
+  color: #444444;
+}
+.header .tagline {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  color: #444444;
+  margin-top: 3px;
+}
+
+.add-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 1.75rem;
+}
+.add-form input[type=text] {
+  flex: 1;
+  background: #252525;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  color: #efefef;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.9rem;
+  padding: 0.65rem 1rem;
+  outline: none;
+  transition: all 0.16s ease;
+}
+.add-form input[type=text]::-moz-placeholder {
+  color: #444444;
+}
+.add-form input[type=text]::placeholder {
+  color: #444444;
+}
+.add-form input[type=text]:focus {
+  border-color: rgba(0, 229, 160, 0.4);
+  box-shadow: 0 0 0 3px rgba(0, 229, 160, 0.12);
+  background: #222222;
+}
+.add-form input[type=submit] {
+  background: #00e5a0;
+  color: #0a0a0a;
+  border: none;
+  border-radius: 12px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.65rem 1.25rem;
+  cursor: pointer;
+  transition: all 0.16s ease;
+  white-space: nowrap;
+}
+.add-form input[type=submit]:hover {
+  background: #00b37d;
+  transform: translateY(-1px);
+}
+.add-form input[type=submit]:active {
+  transform: translateY(0);
+}
+
+.section-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  color: #444444;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.75rem;
+}
+
+.empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  border: 1px dashed #2a2a2a;
+  border-radius: 12px;
+  color: #444444;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.82rem;
+}
+.empty .empty-icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.6rem;
+  opacity: 0.35;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.task-card {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: all 0.16s ease;
+}
+.task-card:hover {
+  border-color: rgba(0, 229, 160, 0.25);
+  background: #222222;
+}
+.task-card .task-body {
+  flex: 1;
+  min-width: 0;
+}
+.task-card .task-body .task-text {
+  display: block;
+  font-size: 0.93rem;
+  color: #efefef;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.task-card .task-body .task-date {
+  font-size: 0.72rem;
+  color: #444444;
+  font-family: "JetBrains Mono", monospace;
+  margin-top: 3px;
+  display: block;
+}
+.task-card .task-actions {
+  display: flex;
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+.btn-edit {
+  background: rgba(0, 229, 160, 0.08);
+  border: 1px solid rgba(0, 229, 160, 0.3);
+  border-radius: 7px;
+  color: #00e5a0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 11px;
+  transition: all 0.16s ease;
+}
+.btn-edit:hover {
+  background: rgba(0, 229, 160, 0.18);
+  color: #00e5a0;
+}
+
+.btn-delete {
+  background: rgba(255, 92, 92, 0.1);
+  border: 1px solid rgba(255, 92, 92, 0.28);
+  border-radius: 7px;
+  color: #ff5c5c;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 11px;
+  transition: all 0.16s ease;
+}
+.btn-delete:hover {
+  background: rgba(255, 92, 92, 0.2);
+}
+
+.edit-card {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 1.75rem 2rem;
+}
+.edit-card .edit-title {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  color: #444444;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.25rem;
+}
+.edit-card .edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.edit-card .edit-form input[type=text] {
+  background: #252525;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  color: #efefef;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.95rem;
+  padding: 0.7rem 1rem;
+  width: 100%;
+  outline: none;
+  transition: all 0.16s ease;
+}
+.edit-card .edit-form input[type=text]:focus {
+  border-color: rgba(0, 229, 160, 0.4);
+  box-shadow: 0 0 0 3px rgba(0, 229, 160, 0.12);
+}
+.edit-card .edit-form .edit-actions {
+  display: flex;
+  gap: 9px;
+  margin-top: 4px;
+}
+.edit-card .edit-form .edit-actions input[type=submit] {
+  background: #00e5a0;
+  color: #0a0a0a;
+  border: none;
+  border-radius: 12px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.65rem 1.3rem;
+  cursor: pointer;
+  transition: all 0.16s ease;
+}
+.edit-card .edit-form .edit-actions input[type=submit]:hover {
+  background: #00b37d;
+  transform: translateY(-1px);
+}
+.edit-card .edit-form .edit-actions .btn-cancel {
+  background: transparent;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  color: #777777;
+  font-size: 0.85rem;
+  padding: 0.65rem 1.1rem;
+  transition: all 0.16s ease;
+  display: inline-flex;
+  align-items: center;
+}
+.edit-card .edit-form .edit-actions .btn-cancel:hover {
+  border-color: #777777;
+  color: #efefef;
+}/*# sourceMappingURL=styles.css.map */
